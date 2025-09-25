@@ -1,0 +1,71 @@
+Quiero que crees el código completo de un sitio web estático en React para una empresa que actúa como intermediaria comercial (broker agrícola) conectando proveedores de fresas y arándanos con compradores nacionales e internacionales.
+
+🔹 Estilo visual
+
+Diseño fresco y natural, usando colores que transmitan confianza: verdes (naturaleza), rojos (fresas) y azules (arándanos).
+
+Estilo profesional y moderno, con tipografía clara y elegante (ej. Montserrat, Open Sans o Lato).
+
+Imágenes de alta calidad de frutas frescas y campos agrícolas.
+
+Layout limpio con bloques bien organizados.
+
+🔹 Funcionalidades
+
+Multilenguaje (español/inglés): botón o selector en el encabezado para cambiar de idioma.
+
+Formularios de contacto funcionales:
+
+Uno para proveedores (“Soy proveedor y quiero vender”).
+
+Otro para compradores (“Soy comprador y busco fruta”).
+
+Los formularios deben validar datos y poder enviar la información por correo (usa una integración genérica como EmailJS o un endpoint simulado, para que luego yo configure el backend).
+
+Navegación fluida y profesional con menú fijo arriba.
+
+Responsive design para que se vea perfecto en móviles y ordenadores.
+
+🔹 Secciones de la web
+
+Header con logo, menú y selector de idioma.
+
+Hero (principal):
+
+Título: “Conectamos productores de frutas con compradores en todo el mundo”.
+
+Subtítulo: “Especialistas en fresas y arándanos. Calidad garantizada y logística eficiente.”
+
+Botones de acción: “Soy proveedor” / “Soy comprador”.
+
+Quiénes somos: misión, valores (confianza, calidad, transparencia).
+
+Cómo trabajamos: pasos visuales (selección de proveedores → conexión → operación segura).
+
+Productos: fresas y arándanos con imágenes y descripciones.
+
+Servicios: intermediación, negociación, exportación, asesoría en logística.
+
+Beneficios:
+
+Para proveedores: acceso a mercados, ventas seguras, apoyo logístico.
+
+Para compradores: fruta fresca certificada, red confiable, ahorro de tiempo.
+
+Testimonios o bloque preparado para testimonios futuros.
+
+Formularios de contacto (proveedor / comprador).
+
+Footer: datos de contacto, enlaces rápidos, redes sociales.
+
+🔹 Extras
+
+Código bien estructurado en React con componentes reutilizables.
+
+Estilos con TailwindCSS o Styled Components.
+
+Animaciones suaves (ej. Framer Motion) para dar dinamismo.
+
+Preparado para SEO (etiquetas meta, títulos claros, descripciones).
+
+Textos iniciales en español, con traducción al inglés disponible al cambiar el idioma.
