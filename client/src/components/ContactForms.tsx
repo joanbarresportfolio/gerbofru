@@ -21,18 +21,41 @@ export default function ContactForms() {
 
   const supplierMutation = useMutation({
     mutationFn: async (data: InsertSupplierInquiry) => {
+      console.log("Supplier mutation starting with data:", data);
       const response = await apiRequest("POST", "/api/supplier-inquiry", data);
-      return response.json();
+      console.log("Supplier API response status:", response.status);
+      
+      // Guard JSON parsing to handle potential non-JSON responses
+      const contentType = response.headers.get('content-type') || '';
+      let result = null;
+      
+      if (contentType.includes('application/json')) {
+        try {
+          result = await response.json();
+          console.log("Supplier API response data:", result);
+        } catch (jsonError) {
+          console.warn("Failed to parse JSON response:", jsonError);
+          result = { success: true }; // Fallback for successful requests
+        }
+      } else {
+        console.warn("Response is not JSON, content-type:", contentType);
+        result = { success: true }; // Fallback for successful requests
+      }
+      
+      return result;
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
+      console.log("Supplier mutation onSuccess triggered with:", data);
       toast({
         title: "¡Formulario enviado!",
         description: "Nos pondremos en contacto contigo en menos de 24 horas.",
       });
       queryClient.invalidateQueries({ queryKey: ["/api/supplier-inquiries"] });
       supplierForm.reset();
+      console.log("Supplier form reset called");
     },
-    onError: () => {
+    onError: (error) => {
+      console.error("Supplier mutation onError:", error);
       toast({
         title: "Error",
         description: "Hubo un problema al enviar el formulario. Por favor, intenta de nuevo.",
@@ -43,18 +66,41 @@ export default function ContactForms() {
 
   const buyerMutation = useMutation({
     mutationFn: async (data: InsertBuyerInquiry) => {
+      console.log("Buyer mutation starting with data:", data);
       const response = await apiRequest("POST", "/api/buyer-inquiry", data);
-      return response.json();
+      console.log("Buyer API response status:", response.status);
+      
+      // Guard JSON parsing to handle potential non-JSON responses
+      const contentType = response.headers.get('content-type') || '';
+      let result = null;
+      
+      if (contentType.includes('application/json')) {
+        try {
+          result = await response.json();
+          console.log("Buyer API response data:", result);
+        } catch (jsonError) {
+          console.warn("Failed to parse JSON response:", jsonError);
+          result = { success: true }; // Fallback for successful requests
+        }
+      } else {
+        console.warn("Response is not JSON, content-type:", contentType);
+        result = { success: true }; // Fallback for successful requests
+      }
+      
+      return result;
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
+      console.log("Buyer mutation onSuccess triggered with:", data);
       toast({
         title: "¡Formulario enviado!",
         description: "Nos pondremos en contacto contigo en menos de 24 horas.",
       });
       queryClient.invalidateQueries({ queryKey: ["/api/buyer-inquiries"] });
       buyerForm.reset();
+      console.log("Buyer form reset called");
     },
-    onError: () => {
+    onError: (error) => {
+      console.error("Buyer mutation onError:", error);
       toast({
         title: "Error",
         description: "Hubo un problema al enviar el formulario. Por favor, intenta de nuevo.",
@@ -93,10 +139,12 @@ export default function ContactForms() {
   });
 
   const onSupplierSubmit = (data: InsertSupplierInquiry) => {
+    console.log("Supplier form submitted with data:", data);
     supplierMutation.mutate(data);
   };
 
   const onBuyerSubmit = (data: InsertBuyerInquiry) => {
+    console.log("Buyer form submitted with data:", data);
     buyerMutation.mutate(data);
   };
 
@@ -145,9 +193,9 @@ export default function ContactForms() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{t("contact.form.name")}</FormLabel>
+                        <FormLabel htmlFor="supplier-name">{t("contact.form.name")}</FormLabel>
                         <FormControl>
-                          <Input {...field} data-testid="supplier-name" />
+                          <Input id="supplier-name" {...field} data-testid="supplier-name" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -158,9 +206,9 @@ export default function ContactForms() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{t("contact.form.email")}</FormLabel>
+                        <FormLabel htmlFor="supplier-email">{t("contact.form.email")}</FormLabel>
                         <FormControl>
-                          <Input type="email" {...field} data-testid="supplier-email" />
+                          <Input id="supplier-email" type="email" {...field} data-testid="supplier-email" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -174,9 +222,9 @@ export default function ContactForms() {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{t("contact.form.phone")}</FormLabel>
+                        <FormLabel htmlFor="supplier-phone">{t("contact.form.phone")}</FormLabel>
                         <FormControl>
-                          <Input type="tel" {...field} data-testid="supplier-phone" />
+                          <Input id="supplier-phone" type="tel" {...field} data-testid="supplier-phone" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -187,9 +235,9 @@ export default function ContactForms() {
                     name="company"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{t("contact.supplier_form.company")}</FormLabel>
+                        <FormLabel htmlFor="supplier-company">{t("contact.supplier_form.company")}</FormLabel>
                         <FormControl>
-                          <Input {...field} data-testid="supplier-company" />
+                          <Input id="supplier-company" {...field} data-testid="supplier-company" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -211,16 +259,20 @@ export default function ContactForms() {
                             <FormItem className="flex flex-row items-start space-x-3 space-y-0">
                               <FormControl>
                                 <Checkbox
+                                  id="supplier-products-strawberries"
                                   checked={field.value?.includes("strawberries")}
                                   onCheckedChange={(checked) => {
-                                    return checked
-                                      ? field.onChange([...field.value, "strawberries"])
-                                      : field.onChange(field.value?.filter((value) => value !== "strawberries"));
+                                    const isChecked = checked === true;
+                                    const current = Array.isArray(field.value) ? field.value : [];
+                                    const next = isChecked 
+                                      ? [...new Set([...current, "strawberries"])]
+                                      : current.filter(v => v !== "strawberries");
+                                    field.onChange(next);
                                   }}
                                   data-testid="supplier-strawberries"
                                 />
                               </FormControl>
-                              <FormLabel className="text-sm font-normal">
+                              <FormLabel htmlFor="supplier-products-strawberries" className="text-sm font-normal">
                                 {t("products.strawberries.title")}
                               </FormLabel>
                             </FormItem>
@@ -233,16 +285,20 @@ export default function ContactForms() {
                             <FormItem className="flex flex-row items-start space-x-3 space-y-0">
                               <FormControl>
                                 <Checkbox
+                                  id="supplier-products-blueberries"
                                   checked={field.value?.includes("blueberries")}
                                   onCheckedChange={(checked) => {
-                                    return checked
-                                      ? field.onChange([...field.value, "blueberries"])
-                                      : field.onChange(field.value?.filter((value) => value !== "blueberries"));
+                                    const isChecked = checked === true;
+                                    const current = Array.isArray(field.value) ? field.value : [];
+                                    const next = isChecked 
+                                      ? [...new Set([...current, "blueberries"])]
+                                      : current.filter(v => v !== "blueberries");
+                                    field.onChange(next);
                                   }}
                                   data-testid="supplier-blueberries"
                                 />
                               </FormControl>
-                              <FormLabel className="text-sm font-normal">
+                              <FormLabel htmlFor="supplier-products-blueberries" className="text-sm font-normal">
                                 {t("products.blueberries.title")}
                               </FormLabel>
                             </FormItem>
@@ -402,16 +458,20 @@ export default function ContactForms() {
                             <FormItem className="flex flex-row items-start space-x-3 space-y-0">
                               <FormControl>
                                 <Checkbox
+                                  id="buyer-products-strawberries"
                                   checked={field.value?.includes("strawberries")}
                                   onCheckedChange={(checked) => {
-                                    return checked
-                                      ? field.onChange([...field.value, "strawberries"])
-                                      : field.onChange(field.value?.filter((value) => value !== "strawberries"));
+                                    const isChecked = checked === true;
+                                    const current = Array.isArray(field.value) ? field.value : [];
+                                    const next = isChecked 
+                                      ? [...new Set([...current, "strawberries"])]
+                                      : current.filter(v => v !== "strawberries");
+                                    field.onChange(next);
                                   }}
                                   data-testid="buyer-strawberries"
                                 />
                               </FormControl>
-                              <FormLabel className="text-sm font-normal">
+                              <FormLabel htmlFor="buyer-products-strawberries" className="text-sm font-normal">
                                 {t("products.strawberries.title")}
                               </FormLabel>
                             </FormItem>
@@ -424,16 +484,20 @@ export default function ContactForms() {
                             <FormItem className="flex flex-row items-start space-x-3 space-y-0">
                               <FormControl>
                                 <Checkbox
+                                  id="buyer-products-blueberries"
                                   checked={field.value?.includes("blueberries")}
                                   onCheckedChange={(checked) => {
-                                    return checked
-                                      ? field.onChange([...field.value, "blueberries"])
-                                      : field.onChange(field.value?.filter((value) => value !== "blueberries"));
+                                    const isChecked = checked === true;
+                                    const current = Array.isArray(field.value) ? field.value : [];
+                                    const next = isChecked 
+                                      ? [...new Set([...current, "blueberries"])]
+                                      : current.filter(v => v !== "blueberries");
+                                    field.onChange(next);
                                   }}
                                   data-testid="buyer-blueberries"
                                 />
                               </FormControl>
-                              <FormLabel className="text-sm font-normal">
+                              <FormLabel htmlFor="buyer-products-blueberries" className="text-sm font-normal">
                                 {t("products.blueberries.title")}
                               </FormLabel>
                             </FormItem>
