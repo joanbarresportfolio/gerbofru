@@ -22,8 +22,8 @@ export default function Footer() {
                 <Leaf className="text-primary-foreground text-lg" size={20} />
               </div>
               <div>
-                <h3 className="text-xl font-display font-bold">AgroConnect</h3>
-                <p className="text-sm text-gray-400">Broker Agrícola</p>
+                <h3 className="text-xl font-display font-bold">Gerbofru</h3>
+                <p className="text-sm text-gray-400">Intermediación Hortofrutícola</p>
               </div>
             </div>
             <p className="text-gray-300 mb-4 max-w-md" data-testid="footer-description">
@@ -114,11 +114,11 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center">
                 <Mail className="text-primary mr-3" size={16} />
-                <span className="text-gray-300" data-testid="footer-email">info@agroconnect.com</span>
+                <span className="text-gray-300" data-testid="footer-email">info@gerbofru.com</span>
               </div>
               <div className="flex items-center">
                 <Phone className="text-primary mr-3" size={16} />
-                <span className="text-gray-300" data-testid="footer-phone">+1 (555) 123-4567</span>
+                <span className="text-gray-300" data-testid="footer-phone">+34 XXX XXX XXX</span>
               </div>
               <div className="flex items-center">
                 <MapPin className="text-primary mr-3" size={16} />
