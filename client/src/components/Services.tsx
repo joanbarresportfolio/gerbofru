@@ -1,33 +1,33 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
-import { Users, MessageCircle, Globe, Truck } from "lucide-react";
+import { TrendingUp, Handshake, Truck, ShieldCheck } from "lucide-react";
 
 export default function Services() {
   const { t } = useLanguage();
 
   const services = [
     {
-      icon: Users,
-      title: t("services.intermediation.title"),
-      description: t("services.intermediation.description"),
+      icon: TrendingUp,
+      title: t("services.commercial_opportunities.title"),
+      description: t("services.commercial_opportunities.description"),
       gradient: "gradient-primary"
     },
     {
-      icon: MessageCircle,
-      title: t("services.negotiation.title"),
-      description: t("services.negotiation.description"),
+      icon: Handshake,
+      title: t("services.agreements.title"),
+      description: t("services.agreements.description"),
       gradient: "gradient-strawberry"
-    },
-    {
-      icon: Globe,
-      title: t("services.export.title"),
-      description: t("services.export.description"),
-      gradient: "gradient-blueberry"
     },
     {
       icon: Truck,
       title: t("services.logistics.title"),
       description: t("services.logistics.description"),
+      gradient: "gradient-blueberry"
+    },
+    {
+      icon: ShieldCheck,
+      title: t("services.trust.title"),
+      description: t("services.trust.description"),
       gradient: "bg-accent"
     }
   ];

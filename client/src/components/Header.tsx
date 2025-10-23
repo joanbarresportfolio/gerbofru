@@ -39,8 +39,8 @@ export default function Header() {
               <Leaf className="text-primary-foreground text-lg" />
             </div>
             <div>
-              <h1 className="text-xl font-display font-bold text-foreground">AgroConnect</h1>
-              <p className="text-xs text-muted-foreground">Broker Agrícola</p>
+              <h1 className="text-xl font-display font-bold text-foreground">Gerbofru</h1>
+              <p className="text-xs text-muted-foreground">Intermediación Hortofrutícola</p>
             </div>
           </div>
           
