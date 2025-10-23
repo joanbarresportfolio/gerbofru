@@ -2,6 +2,10 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Handshake, Award, Eye, Users, MapPin, TrendingUp } from "lucide-react";
 
+import trustImg from "@assets/stock_images/business_handshake_t_4a4da0bf.jpg";
+import qualityImg from "@assets/stock_images/quality_premium_fres_c0dcbddf.jpg";
+import transparencyImg from "@assets/stock_images/transparency_clear_g_96e13882.jpg";
+
 export default function About() {
   const { t } = useLanguage();
 
@@ -10,19 +14,22 @@ export default function About() {
       icon: Handshake,
       title: t("about.trust.title"),
       description: t("about.trust.description"),
-      gradient: "gradient-primary"
+      gradient: "gradient-primary",
+      image: trustImg
     },
     {
       icon: Award,
       title: t("about.quality.title"),
       description: t("about.quality.description"),
-      gradient: "gradient-strawberry"
+      gradient: "gradient-strawberry",
+      image: qualityImg
     },
     {
       icon: Eye,
       title: t("about.transparency.title"),
       description: t("about.transparency.description"),
-      gradient: "gradient-blueberry"
+      gradient: "gradient-blueberry",
+      image: transparencyImg
     }
   ];
 
@@ -93,29 +100,47 @@ export default function About() {
           })}
         </div>
 
-        {/* Values Section */}
+        {/* Values Section with Images */}
         <div className="grid md:grid-cols-3 gap-8">
           {values.map((value, index) => {
             const IconComponent = value.icon;
             return (
               <motion.div 
                 key={index}
-                className="bg-card rounded-xl p-8 shadow-md hover-lift group"
+                className="bg-card rounded-xl overflow-hidden shadow-lg hover-lift group"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
                 data-testid={`about-value-${index}`}
               >
-                <div className={`w-20 h-20 ${value.gradient} rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300`}>
-                  <IconComponent className="text-white" size={36} />
+                {/* Image with overlay */}
+                <div className="relative h-56 overflow-hidden">
+                  <img 
+                    src={value.image} 
+                    alt={value.title}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  />
+                  {/* Gradient overlay */}
+                  <div className={`absolute inset-0 ${value.gradient} opacity-60 group-hover:opacity-50 transition-opacity duration-300`}></div>
+                  
+                  {/* Icon */}
+                  <div className="absolute top-6 left-6">
+                    <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center shadow-xl">
+                      <IconComponent className="text-white" size={32} />
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-display font-bold mb-3" data-testid={`about-value-title-${index}`}>
-                  {value.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed" data-testid={`about-value-description-${index}`}>
-                  {value.description}
-                </p>
+                
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-2xl font-display font-bold mb-3" data-testid={`about-value-title-${index}`}>
+                    {value.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed" data-testid={`about-value-description-${index}`}>
+                    {value.description}
+                  </p>
+                </div>
               </motion.div>
             );
           })}
