@@ -48,6 +48,11 @@ import veg9 from "@assets/stock_images/fresh_lettuce_brocco_a8b3ce17.jpg";
 import veg10 from "@assets/stock_images/fresh_lettuce_brocco_4b4e9ad8.jpg";
 import veg11 from "@assets/stock_images/fresh_lettuce_brocco_4d7d7411.jpg";
 
+import berry1 from "@assets/stock_images/fresh_strawberries_1ae902cb.jpg";
+import berry2 from "@assets/stock_images/fresh_blueberries_cdca1fe6.jpg";
+import berry3 from "@assets/stock_images/fresh_raspberries_e8e49bad.jpg";
+import berry4 from "@assets/stock_images/fresh_blackberries_4f333457.jpg";
+
 const categoryImages: Record<string, string> = {
   citricos: citrusImg,
   "otras-frutas": otherFruitsImg,
@@ -63,7 +68,7 @@ const fruitImages: Record<string, string[]> = {
   "fruta-hueso": [stone1, stone2, stone3, stone4],
   "fruta-tropical": [tropical1, tropical2, tropical3, tropical4, tropical5],
   verduras: [veg1, veg2, veg3, veg4, veg5, veg6, veg7, veg8, veg9, veg10, veg11],
-  berries: [orange1, orange2, orange3, orange4],
+  berries: [berry1, berry2, berry3, berry4],
 };
 
 export default function Products() {

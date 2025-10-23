@@ -31,13 +31,20 @@ Preferred communication style: Simple, everyday language.
 - **Storage Interface**: Abstracted storage layer allowing for easy switching between in-memory and database storage
 
 ## Product Catalog
-The website features six main product categories:
-1. **Cítricos**: Naranjas, Mandarina, Limón, Pomelo
-2. **Otras Frutas**: Sandía, Melón, Pera, Manzana, Kaki
-3. **Fruta de Hueso**: Melocotón, Nectarina, Ciruela, Paraguayo, Albaricoque
-4. **Fruta Tropical**: Granada, Aguacate, Mango, Piña, Níspero
-5. **Verduras**: Pimientos, Berenjena, Pepino, Calabacín, Apio, Iceberg, Romana, Little Gem, Brócoli, Coliflor, Cebolla, Zanahoria, Ajo
+The website features six main product categories with detailed fruit data system (shared/fruitsData.ts):
+
+1. **Cítricos** (Citrus): Naranjas, Mandarina, Limón, Pomelo
+2. **Otras Frutas** (Other Fruits): Sandía, Melón, Pera, Manzana, Kaki
+3. **Fruta de Hueso** (Stone Fruits): Melocotón, Nectarina, Ciruela, Paraguayo, Albaricoque
+4. **Fruta Tropical** (Tropical Fruits): Granada, Aguacate, Mango, Piña, Níspero
+5. **Verduras** (Vegetables): Pimientos, Berenjena, Pepino, Calabacín, Apio, Iceberg, Romana, Little Gem, Brócoli, Coliflor, Cebolla, Zanahoria, Ajo
 6. **Berries**: Fresa, Arándano, Frambuesa, Mora
+
+Each product includes:
+- Bilingual name (Spanish/English)
+- Detailed description of characteristics and qualities
+- Seasonal availability information
+- High-quality stock images
 
 ## Design System
 - **Typography**: Custom font stack using Montserrat and Inter fonts
@@ -81,7 +88,18 @@ The website features six main product categories:
 - Migrated from AgroConnect to Gerbofru branding
 - Updated all translations with Gerbofru-specific content
 - Expanded product catalog from 2 products (strawberries, blueberries) to 36+ products across 6 categories
-- Redesigned Products section to showcase all product categories
+- Redesigned Products section to showcase all product categories with expandable accordion
+- Implemented comprehensive fruit data system with detailed descriptions and seasonal information
+- Added high-quality stock images for all fruit categories and individual fruits
+- Created expandable product sections using Shadcn/ui Accordion component
+- Each fruit category displays:
+  - Category image and emoji icon
+  - Category name and description
+  - Expandable section revealing all individual fruits
+- Individual fruit cards show:
+  - Fruit image
+  - Name and detailed description
+  - Seasonal availability information
 - Updated Services section to reflect Gerbofru's business model:
   - Identifying commercial opportunities
   - Facilitating agreements between parties
