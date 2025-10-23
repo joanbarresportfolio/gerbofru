@@ -16,6 +16,9 @@ export const translations = {
     // About Section
     "about.title": "Quiénes Somos",
     "about.description": "Gerbofru, somos una empresa familiar especializada en la intermediación comercial de frutas y verduras frescas, conectando de forma eficiente a productores con compradores en todo el país y con mercados internacionales.",
+    "about.stats.years": "Años de Experiencia",
+    "about.stats.countries": "Países Conectados",
+    "about.stats.connections": "Conexiones Exitosas",
     "about.trust.title": "Confianza",
     "about.trust.description": "Construimos relaciones de largo plazo basadas en la confianza, la transparencia y el compromiso profesional.",
     "about.quality.title": "Calidad",
@@ -185,6 +188,9 @@ export const translations = {
     // About Section
     "about.title": "Who We Are",
     "about.description": "Gerbofru, we are a family business specializing in the commercial intermediation of fresh fruits and vegetables, efficiently connecting producers with buyers throughout the country and with international markets.",
+    "about.stats.years": "Years of Experience",
+    "about.stats.countries": "Countries Connected",
+    "about.stats.connections": "Successful Connections",
     "about.trust.title": "Trust",
     "about.trust.description": "We build long-term relationships based on trust, transparency and professional commitment.",
     "about.quality.title": "Quality",

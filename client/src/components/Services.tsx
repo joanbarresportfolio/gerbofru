@@ -10,30 +10,34 @@ export default function Services() {
       icon: TrendingUp,
       title: t("services.commercial_opportunities.title"),
       description: t("services.commercial_opportunities.description"),
-      gradient: "gradient-primary"
+      gradient: "from-green-500 to-emerald-600",
+      iconColor: "text-white"
     },
     {
       icon: Handshake,
       title: t("services.agreements.title"),
       description: t("services.agreements.description"),
-      gradient: "gradient-strawberry"
+      gradient: "from-blue-500 to-cyan-600",
+      iconColor: "text-white"
     },
     {
       icon: Truck,
       title: t("services.logistics.title"),
       description: t("services.logistics.description"),
-      gradient: "gradient-blueberry"
+      gradient: "from-purple-500 to-pink-600",
+      iconColor: "text-white"
     },
     {
       icon: ShieldCheck,
       title: t("services.trust.title"),
       description: t("services.trust.description"),
-      gradient: "bg-accent"
+      gradient: "from-orange-500 to-red-600",
+      iconColor: "text-white"
     }
   ];
 
   return (
-    <section id="servicios" className="section-padding">
+    <section id="servicios" className="section-padding bg-secondary/50">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"
@@ -56,22 +60,33 @@ export default function Services() {
             return (
               <motion.div 
                 key={index}
-                className="bg-card p-6 rounded-xl shadow-md hover-lift"
+                className="bg-card rounded-2xl shadow-lg hover-lift overflow-hidden group border border-primary/10"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 data-testid={`service-card-${index}`}
               >
-                <div className={`w-12 h-12 ${service.gradient} rounded-lg flex items-center justify-center mb-4`}>
-                  <IconComponent className="text-xl text-white" size={24} />
+                {/* Icon header with gradient */}
+                <div className={`bg-gradient-to-br ${service.gradient} p-6 relative overflow-hidden`}>
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300"></div>
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 relative z-10">
+                    <IconComponent className={service.iconColor} size={32} />
+                  </div>
                 </div>
-                <h3 className="text-lg font-display font-semibold mb-2" data-testid={`service-title-${index}`}>
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground text-sm" data-testid={`service-description-${index}`}>
-                  {service.description}
-                </p>
+                
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-display font-bold mb-3 group-hover:text-primary transition-colors" data-testid={`service-title-${index}`}>
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed" data-testid={`service-description-${index}`}>
+                    {service.description}
+                  </p>
+                </div>
+
+                {/* Bottom accent line */}
+                <div className={`h-1 bg-gradient-to-r ${service.gradient}`}></div>
               </motion.div>
             );
           })}
