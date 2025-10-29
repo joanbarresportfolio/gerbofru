@@ -3,14 +3,32 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { insertSupplierInquirySchema, insertBuyerInquirySchema, type InsertSupplierInquiry, type InsertBuyerInquiry } from "@shared/schema";
+import {
+  insertSupplierInquirySchema,
+  insertBuyerInquirySchema,
+  type InsertSupplierInquiry,
+  type InsertBuyerInquiry,
+} from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Sprout, ShoppingCart, Send } from "lucide-react";
 
 export default function ContactForms() {
@@ -60,9 +78,9 @@ export default function ContactForms() {
   const supplierMutation = useMutation({
     mutationFn: async (data: InsertSupplierInquiry) => {
       const response = await apiRequest("POST", "/api/supplier-inquiry", data);
-      const contentType = response.headers.get('content-type') || '';
-      
-      if (contentType.includes('application/json')) {
+      const contentType = response.headers.get("content-type") || "";
+
+      if (contentType.includes("application/json")) {
         try {
           return await response.json();
         } catch {
@@ -82,7 +100,8 @@ export default function ContactForms() {
     onError: () => {
       toast({
         title: "Error",
-        description: "Hubo un problema al enviar el formulario. Por favor, intenta de nuevo.",
+        description:
+          "Hubo un problema al enviar el formulario. Por favor, intenta de nuevo.",
         variant: "destructive",
       });
     },
@@ -91,9 +110,9 @@ export default function ContactForms() {
   const buyerMutation = useMutation({
     mutationFn: async (data: InsertBuyerInquiry) => {
       const response = await apiRequest("POST", "/api/buyer-inquiry", data);
-      const contentType = response.headers.get('content-type') || '';
-      
-      if (contentType.includes('application/json')) {
+      const contentType = response.headers.get("content-type") || "";
+
+      if (contentType.includes("application/json")) {
         try {
           return await response.json();
         } catch {
@@ -113,7 +132,8 @@ export default function ContactForms() {
     onError: () => {
       toast({
         title: "Error",
-        description: "Hubo un problema al enviar el formulario. Por favor, intenta de nuevo.",
+        description:
+          "Hubo un problema al enviar el formulario. Por favor, intenta de nuevo.",
         variant: "destructive",
       });
     },
@@ -159,24 +179,30 @@ export default function ContactForms() {
   return (
     <section id="contacto" className="section-padding bg-secondary/50">
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4" data-testid="contact-title">
+          <h2
+            className="text-3xl md:text-4xl font-display font-bold mb-4"
+            data-testid="contact-title"
+          >
             {t("contact.title")}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="contact-description">
+          <p
+            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            data-testid="contact-description"
+          >
             {t("contact.description")}
           </p>
         </motion.div>
-        
+
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Supplier Form */}
-          <motion.div 
+          <motion.div
             id="form-proveedor"
             className="bg-card p-8 rounded-2xl shadow-lg"
             initial={{ opacity: 0, x: -20 }}
@@ -188,21 +214,33 @@ export default function ContactForms() {
               <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mr-4">
                 <Sprout className="text-xl text-primary-foreground" size={24} />
               </div>
-              <h3 className="text-2xl font-display font-bold" data-testid="supplier-form-title">
+              <h3
+                className="text-2xl font-display font-bold"
+                data-testid="supplier-form-title"
+              >
                 {t("contact.supplier_form.title")}
               </h3>
             </div>
-            
+
             <Form {...supplierForm}>
-              <form onSubmit={supplierForm.handleSubmit(onSupplierSubmit)} className="space-y-6">
+              <form
+                onSubmit={supplierForm.handleSubmit(onSupplierSubmit)}
+                className="space-y-6"
+              >
                 <FormField
                   control={supplierForm.control}
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel htmlFor="supplier-name">{t("contact.form.name")}</FormLabel>
+                      <FormLabel htmlFor="supplier-name">
+                        {t("contact.form.name")}
+                      </FormLabel>
                       <FormControl>
-                        <Input id="supplier-name" {...field} data-testid="supplier-name" />
+                        <Input
+                          id="supplier-name"
+                          {...field}
+                          data-testid="supplier-name"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -214,9 +252,15 @@ export default function ContactForms() {
                   name="company"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel htmlFor="supplier-company">{t("contact.supplier_form.company")}</FormLabel>
+                      <FormLabel htmlFor="supplier-company">
+                        {t("contact.supplier_form.company")}
+                      </FormLabel>
                       <FormControl>
-                        <Input id="supplier-company" {...field} data-testid="supplier-company" />
+                        <Input
+                          id="supplier-company"
+                          {...field}
+                          data-testid="supplier-company"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -229,9 +273,16 @@ export default function ContactForms() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel htmlFor="supplier-email">{t("contact.form.email")}</FormLabel>
+                        <FormLabel htmlFor="supplier-email">
+                          {t("contact.form.email")}
+                        </FormLabel>
                         <FormControl>
-                          <Input id="supplier-email" type="email" {...field} data-testid="supplier-email" />
+                          <Input
+                            id="supplier-email"
+                            type="email"
+                            {...field}
+                            data-testid="supplier-email"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -242,23 +293,32 @@ export default function ContactForms() {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel htmlFor="supplier-phone">{t("contact.form.phone")}</FormLabel>
+                        <FormLabel htmlFor="supplier-phone">
+                          {t("contact.form.phone")}
+                        </FormLabel>
                         <FormControl>
-                          <Input id="supplier-phone" type="tel" {...field} data-testid="supplier-phone" />
+                          <Input
+                            id="supplier-phone"
+                            type="tel"
+                            {...field}
+                            data-testid="supplier-phone"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
                 </div>
-                
+
                 <FormField
                   control={supplierForm.control}
                   name="products"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{t("contact.supplier_form.products")}</FormLabel>
-                      <Select 
+                      <FormLabel>
+                        {t("contact.supplier_form.products")}
+                      </FormLabel>
+                      <Select
                         onValueChange={(value) => {
                           const current = field.value || [];
                           if (!current.includes(value)) {
@@ -273,7 +333,10 @@ export default function ContactForms() {
                         </FormControl>
                         <SelectContent>
                           {productOptions.map((product) => (
-                            <SelectItem key={product.value} value={product.value}>
+                            <SelectItem
+                              key={product.value}
+                              value={product.value}
+                            >
                               {product.label}
                             </SelectItem>
                           ))}
@@ -282,7 +345,9 @@ export default function ContactForms() {
                       {field.value && field.value.length > 0 && (
                         <div className="flex flex-wrap gap-2 mt-2">
                           {field.value.map((product: string) => {
-                            const productLabel = productOptions.find(p => p.value === product)?.label || product;
+                            const productLabel =
+                              productOptions.find((p) => p.value === product)
+                                ?.label || product;
                             return (
                               <span
                                 key={product}
@@ -293,7 +358,11 @@ export default function ContactForms() {
                                 <button
                                   type="button"
                                   onClick={() => {
-                                    field.onChange(field.value?.filter((p: string) => p !== product));
+                                    field.onChange(
+                                      field.value?.filter(
+                                        (p: string) => p !== product,
+                                      ),
+                                    );
                                   }}
                                   className="hover:text-destructive"
                                   aria-label="Eliminar"
@@ -309,35 +378,7 @@ export default function ContactForms() {
                     </FormItem>
                   )}
                 />
-                
-                <FormField
-                  control={supplierForm.control}
-                  name="location"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t("contact.supplier_form.location")}</FormLabel>
-                      <FormControl>
-                        <Input {...field} data-testid="supplier-location" />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
 
-                <FormField
-                  control={supplierForm.control}
-                  name="volume"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t("contact.supplier_form.volume")}</FormLabel>
-                      <FormControl>
-                        <Input {...field} placeholder="Ej: 5000" data-testid="supplier-volume" />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
                 <FormField
                   control={supplierForm.control}
                   name="message"
@@ -345,28 +386,35 @@ export default function ContactForms() {
                     <FormItem>
                       <FormLabel>{t("contact.form.message")}</FormLabel>
                       <FormControl>
-                        <Textarea rows={4} {...field} value={field.value || ""} data-testid="supplier-message" />
+                        <Textarea
+                          rows={4}
+                          {...field}
+                          value={field.value || ""}
+                          data-testid="supplier-message"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                
-                <Button 
-                  type="submit" 
+
+                <Button
+                  type="submit"
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold hover-lift"
                   disabled={supplierMutation.isPending}
                   data-testid="supplier-submit"
                 >
                   <Send className="mr-2 h-4 w-4" />
-                  {supplierMutation.isPending ? "Enviando..." : t("contact.form.submit_supplier")}
+                  {supplierMutation.isPending
+                    ? "Enviando..."
+                    : t("contact.form.submit_supplier")}
                 </Button>
               </form>
             </Form>
           </motion.div>
-          
+
           {/* Buyer Form */}
-          <motion.div 
+          <motion.div
             id="form-comprador"
             className="bg-card p-8 rounded-2xl shadow-lg"
             initial={{ opacity: 0, x: 20 }}
@@ -378,13 +426,19 @@ export default function ContactForms() {
               <div className="w-12 h-12 gradient-blueberry rounded-lg flex items-center justify-center mr-4">
                 <ShoppingCart className="text-xl text-white" size={24} />
               </div>
-              <h3 className="text-2xl font-display font-bold" data-testid="buyer-form-title">
+              <h3
+                className="text-2xl font-display font-bold"
+                data-testid="buyer-form-title"
+              >
                 {t("contact.buyer_form.title")}
               </h3>
             </div>
-            
+
             <Form {...buyerForm}>
-              <form onSubmit={buyerForm.handleSubmit(onBuyerSubmit)} className="space-y-6">
+              <form
+                onSubmit={buyerForm.handleSubmit(onBuyerSubmit)}
+                className="space-y-6"
+              >
                 <FormField
                   control={buyerForm.control}
                   name="name"
@@ -421,7 +475,11 @@ export default function ContactForms() {
                       <FormItem>
                         <FormLabel>{t("contact.form.email")}</FormLabel>
                         <FormControl>
-                          <Input type="email" {...field} data-testid="buyer-email" />
+                          <Input
+                            type="email"
+                            {...field}
+                            data-testid="buyer-email"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -434,21 +492,27 @@ export default function ContactForms() {
                       <FormItem>
                         <FormLabel>{t("contact.form.phone")}</FormLabel>
                         <FormControl>
-                          <Input type="tel" {...field} data-testid="buyer-phone" />
+                          <Input
+                            type="tel"
+                            {...field}
+                            data-testid="buyer-phone"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
                 </div>
-                
+
                 <FormField
                   control={buyerForm.control}
                   name="productsInterest"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{t("contact.buyer_form.products_interest")}</FormLabel>
-                      <Select 
+                      <FormLabel>
+                        {t("contact.buyer_form.products_interest")}
+                      </FormLabel>
+                      <Select
                         onValueChange={(value) => {
                           const current = field.value || [];
                           if (!current.includes(value)) {
@@ -463,7 +527,10 @@ export default function ContactForms() {
                         </FormControl>
                         <SelectContent>
                           {productOptions.map((product) => (
-                            <SelectItem key={product.value} value={product.value}>
+                            <SelectItem
+                              key={product.value}
+                              value={product.value}
+                            >
                               {product.label}
                             </SelectItem>
                           ))}
@@ -472,7 +539,9 @@ export default function ContactForms() {
                       {field.value && field.value.length > 0 && (
                         <div className="flex flex-wrap gap-2 mt-2">
                           {field.value.map((product: string) => {
-                            const productLabel = productOptions.find(p => p.value === product)?.label || product;
+                            const productLabel =
+                              productOptions.find((p) => p.value === product)
+                                ?.label || product;
                             return (
                               <span
                                 key={product}
@@ -483,7 +552,11 @@ export default function ContactForms() {
                                 <button
                                   type="button"
                                   onClick={() => {
-                                    field.onChange(field.value?.filter((p: string) => p !== product));
+                                    field.onChange(
+                                      field.value?.filter(
+                                        (p: string) => p !== product,
+                                      ),
+                                    );
                                   }}
                                   className="hover:text-destructive"
                                   aria-label="Eliminar"
@@ -499,60 +572,6 @@ export default function ContactForms() {
                     </FormItem>
                   )}
                 />
-
-                <FormField
-                  control={buyerForm.control}
-                  name="destination"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t("contact.buyer_form.destination")}</FormLabel>
-                      <FormControl>
-                        <Input {...field} placeholder="Ej: Madrid, España" data-testid="buyer-destination" />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <div className="grid md:grid-cols-2 gap-4">
-                  <FormField
-                    control={buyerForm.control}
-                    name="volumeNeeded"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t("contact.buyer_form.volume_needed")}</FormLabel>
-                        <FormControl>
-                          <Input {...field} placeholder="Ej: 10000" data-testid="buyer-volume" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={buyerForm.control}
-                    name="frequency"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t("contact.buyer_form.frequency")}</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger data-testid="buyer-frequency">
-                              <SelectValue />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="weekly">{t("contact.buyer_form.frequency_weekly")}</SelectItem>
-                            <SelectItem value="monthly">{t("contact.buyer_form.frequency_monthly")}</SelectItem>
-                            <SelectItem value="seasonal">{t("contact.buyer_form.frequency_seasonal")}</SelectItem>
-                            <SelectItem value="occasional">{t("contact.buyer_form.frequency_occasional")}</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-                
                 <FormField
                   control={buyerForm.control}
                   name="message"
@@ -560,21 +579,28 @@ export default function ContactForms() {
                     <FormItem>
                       <FormLabel>{t("contact.form.message")}</FormLabel>
                       <FormControl>
-                        <Textarea rows={4} {...field} value={field.value || ""} data-testid="buyer-message" />
+                        <Textarea
+                          rows={4}
+                          {...field}
+                          value={field.value || ""}
+                          data-testid="buyer-message"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                
-                <Button 
-                  type="submit" 
+
+                <Button
+                  type="submit"
                   className="w-full bg-blueberry hover:bg-blueberry/90 text-white font-semibold hover-lift"
                   disabled={buyerMutation.isPending}
                   data-testid="buyer-submit"
                 >
                   <Send className="mr-2 h-4 w-4" />
-                  {buyerMutation.isPending ? "Enviando..." : t("contact.form.submit_buyer")}
+                  {buyerMutation.isPending
+                    ? "Enviando..."
+                    : t("contact.form.submit_buyer")}
                 </Button>
               </form>
             </Form>

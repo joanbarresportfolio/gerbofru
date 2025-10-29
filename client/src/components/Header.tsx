@@ -26,8 +26,8 @@ export default function Header() {
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 bg-card/95 backdrop-blur-md border-b border-border z-50 transition-shadow duration-300 ${
+    <header
+      className={`fixed top-0 left-0 right-0 bg-white/100 border-b border-border z-50 transition-shadow duration-300 ${
         isScrolled ? "shadow-lg" : ""
       }`}
     >
@@ -39,42 +39,46 @@ export default function Header() {
               <Leaf className="text-primary-foreground text-lg" />
             </div>
             <div>
-              <h1 className="text-xl font-display font-bold text-foreground">Gerbofru</h1>
-              <p className="text-xs text-muted-foreground">Intermediación Hortofrutícola</p>
+              <h1 className="text-xl font-display font-bold text-foreground">
+                Gerbofru
+              </h1>
+              <p className="text-xs text-muted-foreground">
+                Intermediación Hortofrutícola
+              </p>
             </div>
           </div>
-          
+
           {/* Navigation Menu - Desktop */}
           <nav className="hidden lg:flex items-center space-x-8">
-            <button 
+            <button
               onClick={() => scrollToSection("inicio")}
               className="text-foreground hover:text-primary transition-colors"
               data-testid="nav-home"
             >
               {t("nav.home")}
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection("nosotros")}
               className="text-foreground hover:text-primary transition-colors"
               data-testid="nav-about"
             >
               {t("nav.about")}
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection("productos")}
               className="text-foreground hover:text-primary transition-colors"
               data-testid="nav-products"
             >
               {t("nav.products")}
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection("servicios")}
               className="text-foreground hover:text-primary transition-colors"
               data-testid="nav-services"
             >
               {t("nav.services")}
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection("contacto")}
               className="text-foreground hover:text-primary transition-colors"
               data-testid="nav-contact"
@@ -82,7 +86,7 @@ export default function Header() {
               {t("nav.contact")}
             </button>
           </nav>
-          
+
           {/* Language Switcher & Mobile Menu */}
           <div className="flex items-center space-x-4">
             <div className="flex items-center bg-secondary rounded-lg p-1">
@@ -105,7 +109,7 @@ export default function Header() {
                 EN
               </Button>
             </div>
-            
+
             {/* Mobile Menu Button */}
             <Button
               variant="ghost"
@@ -114,45 +118,49 @@ export default function Header() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               data-testid="mobile-menu-toggle"
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </Button>
           </div>
         </div>
       </div>
-      
+
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="lg:hidden bg-card border-t border-border">
           <div className="container mx-auto px-4 py-4 space-y-4">
-            <button 
+            <button
               onClick={() => scrollToSection("inicio")}
               className="block w-full text-left text-foreground hover:text-primary transition-colors"
               data-testid="mobile-nav-home"
             >
               {t("nav.home")}
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection("nosotros")}
               className="block w-full text-left text-foreground hover:text-primary transition-colors"
               data-testid="mobile-nav-about"
             >
               {t("nav.about")}
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection("productos")}
               className="block w-full text-left text-foreground hover:text-primary transition-colors"
               data-testid="mobile-nav-products"
             >
               {t("nav.products")}
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection("servicios")}
               className="block w-full text-left text-foreground hover:text-primary transition-colors"
               data-testid="mobile-nav-services"
             >
               {t("nav.services")}
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection("contacto")}
               className="block w-full text-left text-foreground hover:text-primary transition-colors"
               data-testid="mobile-nav-contact"

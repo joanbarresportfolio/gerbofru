@@ -115,7 +115,23 @@ export default function HowWeWork() {
           viewport={{ once: true }}
         >
           <div className="inline-flex items-center gap-3 bg-card px-8 py-4 rounded-full shadow-lg border-2 border-primary/20">
-            <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+            <motion.div 
+              className="w-3 h-3 rounded-full bg-green-500"
+              animate={{
+                opacity: [0.4, 1, 0.4],
+                scale: [1, 1.3, 1],
+                boxShadow: [
+                  "0 0 0 0 rgba(34, 197, 94, 0)",
+                  "0 0 10px 3px rgba(34, 197, 94, 0.4)",
+                  "0 0 0 0 rgba(34, 197, 94, 0)"
+                ]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
             <span className="font-semibold text-lg">
               Listos para conectar tu negocio
             </span>
