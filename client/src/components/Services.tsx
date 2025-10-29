@@ -60,7 +60,7 @@ export default function Services() {
             return (
               <motion.div 
                 key={index}
-                className="bg-card rounded-2xl shadow-lg hover-lift overflow-hidden group border border-primary/10"
+                className="bg-card rounded-2xl shadow-lg hover-lift overflow-hidden group border border-primary/10 flex flex-col h-full"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -76,7 +76,7 @@ export default function Services() {
                 </div>
                 
                 {/* Content */}
-                <div className="p-6">
+                <div className="p-6 flex-grow">
                   <h3 className="text-xl font-display font-bold mb-3 group-hover:text-primary transition-colors" data-testid={`service-title-${index}`}>
                     {service.title}
                   </h3>
@@ -86,7 +86,7 @@ export default function Services() {
                 </div>
 
                 {/* Bottom accent line */}
-                <div className={`h-1 bg-gradient-to-r ${service.gradient}`}></div>
+                <div className={`h-1 bg-gradient-to-r ${service.gradient} mt-auto`}></div>
               </motion.div>
             );
           })}

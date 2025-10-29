@@ -96,10 +96,13 @@ Each product includes:
 - Added floating WhatsApp button fixed to bottom-right corner
   - Stays visible even when scrolling (position: fixed)
   - Official WhatsApp green color (#25D366)
-  - Pulsing animation effect for attention
-  - Hover tooltip showing "¡Escríbenos por WhatsApp!"
+  - Pulsing animation effect for attention with CSS keyframes
   - Opens WhatsApp Web/app when clicked with pre-filled message
-  - Smooth entrance animation on page load
+  - Simple and reliable implementation using basic button element
+- Fixed Services section card alignment
+  - All service cards now have equal height using flexbox
+  - Bottom accent lines are perfectly aligned horizontally
+  - Content areas expand to fill available space (flex-grow)
 
 ## October 23, 2025
 - Migrated from AgroConnect to Gerbofru branding
