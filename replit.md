@@ -103,6 +103,10 @@ Each product includes:
   - All service cards now have equal height using flexbox
   - Bottom accent lines are perfectly aligned horizontally
   - Content areas expand to fill available space (flex-grow)
+- Fixed Testimonials section alignment
+  - All testimonial cards now have equal height
+  - Customer photos and names are aligned at the bottom of each card
+  - Review text expands to fill available space regardless of length
 
 ## October 23, 2025
 - Migrated from AgroConnect to Gerbofru branding

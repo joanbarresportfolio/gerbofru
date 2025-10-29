@@ -48,7 +48,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <motion.div 
               key={index}
-              className="bg-card p-6 rounded-xl shadow-md"
+              className="bg-card p-6 rounded-xl shadow-md flex flex-col h-full"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
@@ -62,10 +62,10 @@ export default function Testimonials() {
                   ))}
                 </div>
               </div>
-              <p className="text-muted-foreground mb-4" data-testid={`testimonial-text-${index}`}>
+              <p className="text-muted-foreground mb-4 flex-grow" data-testid={`testimonial-text-${index}`}>
                 "{testimonial.text}"
               </p>
-              <div className="flex items-center">
+              <div className="flex items-center mt-auto">
                 <img 
                   src={testimonial.image} 
                   alt={testimonial.name} 
