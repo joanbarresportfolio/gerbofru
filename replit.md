@@ -84,6 +84,16 @@ Each product includes:
 
 # Recent Changes
 
+## October 29, 2025
+- Implemented rotating image carousel in Hero section with 4 agricultural images
+  - Images rotate automatically every 5 seconds with smooth fade transitions
+  - Includes: fresh fruit harvest, orange grove, strawberry field, and vegetable farm
+  - Uses Framer Motion's AnimatePresence for smooth crossfade effect
+- Added pulsating animation to status indicator in HowWeWork section
+  - Green dot now pulses with realistic glowing/breathing effect
+  - Animation uses opacity, scale, and boxShadow changes for light effect
+  - Creates professional status indicator showing "Ready to connect your business"
+
 ## October 23, 2025
 - Migrated from AgroConnect to Gerbofru branding
 - Updated all translations with Gerbofru-specific content
@@ -109,6 +119,9 @@ Each product includes:
 - Updated Header and Footer components with Gerbofru branding
 - Changed company slogan to: "Fruta y verdura con origen, haciendo que el campo llegue a destino con garantía"
 - Updated contact information (email: info@gerbofru.com, location: Spain)
+- Redesigned About section with statistics (30+ years, 15+ countries, 1000+ connections) and image-based value cards
+- Redesigned HowWeWork as modern timeline with icons, animations, and verification badges
+- Improved Services section with visible icons and unique gradients for all four services
 
 # Project Architecture
 
