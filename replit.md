@@ -93,6 +93,13 @@ Each product includes:
   - Green dot now pulses with realistic glowing/breathing effect
   - Animation uses opacity, scale, and boxShadow changes for light effect
   - Creates professional status indicator showing "Ready to connect your business"
+- Added floating WhatsApp button fixed to bottom-right corner
+  - Stays visible even when scrolling (position: fixed)
+  - Official WhatsApp green color (#25D366)
+  - Pulsing animation effect for attention
+  - Hover tooltip showing "¡Escríbenos por WhatsApp!"
+  - Opens WhatsApp Web/app when clicked with pre-filled message
+  - Smooth entrance animation on page load
 
 ## October 23, 2025
 - Migrated from AgroConnect to Gerbofru branding
