@@ -107,6 +107,11 @@ Each product includes:
   - All testimonial cards now have equal height
   - Customer photos and names are aligned at the bottom of each card
   - Review text expands to fill available space regardless of length
+- Updated product naming conventions in fruitsData.ts
+  - Changed all fruit/vegetable names to singular form (Naranja instead of Naranjas)
+  - Exception: "Pimientos" remains plural as requested
+  - Removed emoji icons from all product category families (Cítricos, Otras Frutas, Fruta de Hueso, Fruta Tropical, Verduras, Berries)
+  - Also updated English translations to singular form
 
 ## October 23, 2025
 - Migrated from AgroConnect to Gerbofru branding
