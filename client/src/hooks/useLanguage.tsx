@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { translations, type TranslationKey } from "@/lib/translations";
 
-type Language = "es" | "en";
+type Language = "es" | "en" | "cs" | "pt";
 
 interface LanguageContextType {
   language: Language;

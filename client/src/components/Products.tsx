@@ -67,41 +67,109 @@ const fruitImages: Record<string, string[]> = {
   "otras-frutas": [fruit1, fruit2, fruit3, fruit4],
   "fruta-hueso": [stone1, stone2, stone3, stone4],
   "fruta-tropical": [tropical1, tropical2, tropical3, tropical4, tropical5],
-  verduras: [veg1, veg2, veg3, veg4, veg5, veg6, veg7, veg8, veg9, veg10, veg11],
+  verduras: [
+    veg1,
+    veg2,
+    veg3,
+    veg4,
+    veg5,
+    veg6,
+    veg7,
+    veg8,
+    veg9,
+    veg10,
+    veg11,
+  ],
   berries: [berry1, berry2, berry3, berry4],
 };
 
 export default function Products() {
   const { t, language } = useLanguage();
 
+  const getCategoryName = (category: typeof fruitsData[0]) => {
+    switch (language) {
+      case "es": return category.name;
+      case "en": return category.nameEn;
+      case "cs": return category.nameCs;
+      case "pt": return category.namePt;
+      default: return category.name;
+    }
+  };
+
+  const getCategoryDescription = (category: typeof fruitsData[0]) => {
+    switch (language) {
+      case "es": return category.description;
+      case "en": return category.descriptionEn;
+      case "cs": return category.descriptionCs;
+      case "pt": return category.descriptionPt;
+      default: return category.description;
+    }
+  };
+
+  const getFruitName = (fruit: typeof fruitsData[0]['fruits'][0]) => {
+    switch (language) {
+      case "es": return fruit.name;
+      case "en": return fruit.nameEn;
+      case "cs": return fruit.nameCs;
+      case "pt": return fruit.namePt;
+      default: return fruit.name;
+    }
+  };
+
+  const getFruitSeason = (fruit: typeof fruitsData[0]['fruits'][0]) => {
+    switch (language) {
+      case "es": return fruit.season;
+      case "en": return fruit.seasonEn;
+      case "cs": return fruit.seasonCs;
+      case "pt": return fruit.seasonPt;
+      default: return fruit.season;
+    }
+  };
+
+  const getSeasonLabel = () => {
+    switch (language) {
+      case "es": return "🗓️ Temporada:";
+      case "en": return "🗓️ Season:";
+      case "cs": return "🗓️ Sezóna:";
+      case "pt": return "🗓️ Temporada:";
+      default: return "🗓️ Temporada:";
+    }
+  };
+
   return (
     <section id="productos" className="section-padding bg-secondary/50">
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4" data-testid="products-title">
+          <h2
+            className="text-3xl md:text-4xl font-display font-bold mb-4"
+            data-testid="products-title"
+          >
             {t("products.title")}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="products-description">
+          <p
+            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            data-testid="products-description"
+          >
             {t("products.description")}
           </p>
         </motion.div>
 
         <Accordion type="single" collapsible className="space-y-6">
           {fruitsData.map((category, categoryIndex) => (
-            <AccordionItem 
-              key={category.id} 
+            <AccordionItem
+              key={category.id}
               value={category.id}
               className="bg-card rounded-xl overflow-hidden shadow-lg border-none"
               data-testid={`product-category-${category.id}`}
             >
               <AccordionTrigger className="hover:no-underline p-0 border-none">
-                <motion.div 
+                <motion.div
                   className="w-full"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -110,21 +178,24 @@ export default function Products() {
                 >
                   <div className="flex items-center gap-6 p-6">
                     <div className="w-32 h-32 rounded-lg overflow-hidden flex-shrink-0">
-                      <img 
-                        src={categoryImages[category.id]} 
-                        alt={language === 'es' ? category.name : category.nameEn}
+                      <img
+                        src={categoryImages[category.id]}
+                        alt={getCategoryName(category)}
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="flex-1 text-left">
                       <div className="flex items-center gap-3 mb-2">
                         <span className="text-4xl">{category.icon}</span>
-                        <h3 className="text-2xl font-display font-bold" data-testid={`category-title-${category.id}`}>
-                          {language === 'es' ? category.name : category.nameEn}
+                        <h3
+                          className="text-2xl font-display font-bold"
+                          data-testid={`category-title-${category.id}`}
+                        >
+                          {getCategoryName(category)}
                         </h3>
                       </div>
                       <p className="text-muted-foreground">
-                        {language === 'es' ? category.description : category.descriptionEn}
+                        {getCategoryDescription(category)}
                       </p>
                     </div>
                   </div>
@@ -136,36 +207,39 @@ export default function Products() {
                     {category.fruits.map((fruit, fruitIndex) => {
                       const images = fruitImages[category.id] || [];
                       const fruitImage = images[fruitIndex % images.length];
-                      
+
                       return (
                         <motion.div
                           key={fruit.id}
                           className="bg-background rounded-lg overflow-hidden shadow-md hover-lift"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.4, delay: fruitIndex * 0.05 }}
+                          transition={{
+                            duration: 0.4,
+                            delay: fruitIndex * 0.05,
+                          }}
                           data-testid={`fruit-card-${fruit.id}`}
                         >
                           <div className="h-48 overflow-hidden">
-                            <img 
-                              src={fruitImage} 
-                              alt={language === 'es' ? fruit.name : fruit.nameEn}
+                            <img
+                              src={fruitImage}
+                              alt={getFruitName(fruit)}
                               className="w-full h-full object-cover"
                             />
                           </div>
                           <div className="p-4">
-                            <h4 className="text-lg font-display font-bold mb-2" data-testid={`fruit-name-${fruit.id}`}>
-                              {language === 'es' ? fruit.name : fruit.nameEn}
+                            <h4
+                              className="text-lg font-display font-bold mb-2"
+                              data-testid={`fruit-name-${fruit.id}`}
+                            >
+                              {getFruitName(fruit)}
                             </h4>
-                            <p className="text-sm text-muted-foreground mb-3" data-testid={`fruit-description-${fruit.id}`}>
-                              {language === 'es' ? fruit.description : fruit.descriptionEn}
-                            </p>
                             <div className="flex items-center gap-2 text-xs text-primary">
                               <span className="font-semibold">
-                                {language === 'es' ? '🗓️ Temporada:' : '🗓️ Season:'}
+                                {getSeasonLabel()}
                               </span>
                               <span data-testid={`fruit-season-${fruit.id}`}>
-                                {language === 'es' ? fruit.season : fruit.seasonEn}
+                                {getFruitSeason(fruit)}
                               </span>
                             </div>
                           </div>

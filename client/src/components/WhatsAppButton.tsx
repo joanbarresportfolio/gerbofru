@@ -2,8 +2,10 @@ import { FaWhatsapp } from "react-icons/fa";
 
 export default function WhatsAppButton() {
   const handleWhatsAppClick = () => {
-    const phoneNumber = "34600000000";
-    const message = encodeURIComponent("Hola, me gustaría obtener más información sobre Gerbofru.");
+    const phoneNumber = "34689422852";
+    const message = encodeURIComponent(
+      "Hola, me gustaría obtener más información sobre Gerbofru.",
+    );
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
 

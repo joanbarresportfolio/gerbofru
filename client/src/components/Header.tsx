@@ -94,7 +94,7 @@ export default function Header() {
                 variant={language === "es" ? "default" : "ghost"}
                 size="sm"
                 onClick={() => setLanguage("es")}
-                className="px-3 py-1 text-sm font-medium transition-colors"
+                className="px-2 py-1 text-xs font-medium transition-colors"
                 data-testid="lang-es"
               >
                 ES
@@ -103,10 +103,28 @@ export default function Header() {
                 variant={language === "en" ? "default" : "ghost"}
                 size="sm"
                 onClick={() => setLanguage("en")}
-                className="px-3 py-1 text-sm font-medium transition-colors"
+                className="px-2 py-1 text-xs font-medium transition-colors"
                 data-testid="lang-en"
               >
                 EN
+              </Button>
+              <Button
+                variant={language === "cs" ? "default" : "ghost"}
+                size="sm"
+                onClick={() => setLanguage("cs")}
+                className="px-2 py-1 text-xs font-medium transition-colors"
+                data-testid="lang-cs"
+              >
+                CS
+              </Button>
+              <Button
+                variant={language === "pt" ? "default" : "ghost"}
+                size="sm"
+                onClick={() => setLanguage("pt")}
+                className="px-2 py-1 text-xs font-medium transition-colors"
+                data-testid="lang-pt"
+              >
+                PT
               </Button>
             </div>
 

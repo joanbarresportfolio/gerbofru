@@ -1,6 +1,6 @@
 # Overview
 
-This is an agricultural broker website built with React and Express for Gerbofru, a family business specializing in fruit and vegetable intermediation. The application connects producers with buyers nationally and internationally, featuring a comprehensive product catalog and bilingual support (Spanish/English). The site emphasizes trust, transparency, and traceability in agricultural commerce.
+This is an agricultural broker website built with React and Express for Gerbofru, a family business specializing in fruit and vegetable intermediation. The application connects producers with buyers nationally and internationally, featuring a comprehensive product catalog and multilingual support (Spanish/English/Czech/Portuguese). The site emphasizes trust, transparency, and traceability in agricultural commerce.
 
 # User Preferences
 
@@ -112,6 +112,15 @@ Each product includes:
   - Exception: "Pimientos" remains plural as requested
   - Removed emoji icons from all product category families (Cítricos, Otras Frutas, Fruta de Hueso, Fruta Tropical, Verduras, Berries)
   - Also updated English translations to singular form
+- Added multilingual support with Czech and Portuguese languages
+  - Updated language type to support "es" | "en" | "cs" | "pt"
+  - Added complete Czech translations for all sections (navigation, hero, about, products, services, benefits, testimonials, contact, footer)
+  - Added complete Portuguese translations for all sections (using European Portuguese variants)
+  - Updated fruitsData.ts interfaces to include nameCs, namePt, descriptionCs, descriptionPt, seasonCs, seasonPt
+  - Added Czech and Portuguese translations for all 36 fruit/vegetable items across 6 categories (252 total translation fields)
+  - Updated Header component to display 4 language buttons (ES, EN, CS, PT) with smaller text to fit
+  - Updated Products component with helper functions to display correct language for category names, descriptions, fruit names, and seasons
+  - All seasonal months and "Year-round" properly translated in Czech and Portuguese
 
 ## October 23, 2025
 - Migrated from AgroConnect to Gerbofru branding

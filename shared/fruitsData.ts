@@ -2,18 +2,28 @@ export interface FruitItem {
   id: string;
   name: string;
   nameEn: string;
+  nameCs: string;
+  namePt: string;
   description: string;
   descriptionEn: string;
+  descriptionCs: string;
+  descriptionPt: string;
   season: string;
   seasonEn: string;
+  seasonCs: string;
+  seasonPt: string;
 }
 
 export interface FruitCategory {
   id: string;
   name: string;
   nameEn: string;
+  nameCs: string;
+  namePt: string;
   description: string;
   descriptionEn: string;
+  descriptionCs: string;
+  descriptionPt: string;
   icon: string;
   fruits: FruitItem[];
 }
@@ -23,45 +33,73 @@ export const fruitsData: FruitCategory[] = [
     id: "citricos",
     name: "Cítricos",
     nameEn: "Citrus",
+    nameCs: "Citrusy",
+    namePt: "Citrinos",
     description: "Frutas cítricas frescas y jugosas, ricas en vitamina C",
     descriptionEn: "Fresh and juicy citrus fruits, rich in vitamin C",
+    descriptionCs: "Čerstvé a šťavnaté citrusové plody, bohaté na vitamin C",
+    descriptionPt: "Frutas cítricas frescas e suculentas, ricas em vitamina C",
     icon: "",
     fruits: [
       {
         id: "naranjas",
         name: "Naranja",
         nameEn: "Orange",
+        nameCs: "Pomeranč",
+        namePt: "Laranja",
         description: "Naranjas valencianas de gran calidad, perfectas para zumo o consumo directo. Dulces, jugosas y con un equilibrio perfecto entre acidez y dulzor.",
         descriptionEn: "High-quality Valencian oranges, perfect for juice or direct consumption. Sweet, juicy with a perfect balance between acidity and sweetness.",
+        descriptionCs: "Vysoce kvalitní valencijské pomeranče, ideální na džus nebo přímou konzumaci. Sladké, šťavnaté a s dokonalou rovnováhou mezi kyselostí a sladkostí.",
+        descriptionPt: "Laranjas valencianas de alta qualidade, perfeitas para sumo ou consumo direto. Doces, suculentas e com um equilíbrio perfeito entre acidez e doçura.",
         season: "Noviembre - Mayo",
-        seasonEn: "November - May"
+        seasonEn: "November - May",
+        seasonCs: "Listopad - Květen",
+        seasonPt: "Novembro - Maio"
       },
       {
         id: "mandarina",
         name: "Mandarina",
         nameEn: "Mandarin",
+        nameCs: "Mandarinka",
+        namePt: "Tangerina",
         description: "Mandarinas clementinas fáciles de pelar, sin semillas. Sabor dulce e intenso, ideales para snacks saludables.",
         descriptionEn: "Easy-to-peel clementine mandarins, seedless. Sweet and intense flavor, ideal for healthy snacks.",
+        descriptionCs: "Klementinky snadno oloupatelné, bez semen. Sladká a intenzivní chuť, ideální pro zdravé svačiny.",
+        descriptionPt: "Tangerinas clementinas fáceis de descascar, sem sementes. Sabor doce e intenso, ideais para lanches saudáveis.",
         season: "Octubre - Febrero",
-        seasonEn: "October - February"
+        seasonEn: "October - February",
+        seasonCs: "Říjen - Únor",
+        seasonPt: "Outubro - Fevereiro"
       },
       {
         id: "limon",
         name: "Limón",
         nameEn: "Lemon",
+        nameCs: "Citrón",
+        namePt: "Limão",
         description: "Limones aromáticos y jugosos, con alto contenido en zumo. Perfectos para gastronomía y bebidas.",
         descriptionEn: "Aromatic and juicy lemons with high juice content. Perfect for cooking and beverages.",
+        descriptionCs: "Aromatické a šťavnaté citróny s vysokým obsahem šťávy. Perfektní pro gastronomii a nápoje.",
+        descriptionPt: "Limões aromáticos e suculentos, com alto teor de sumo. Perfeitos para gastronomia e bebidas.",
         season: "Todo el año",
-        seasonEn: "Year-round"
+        seasonEn: "Year-round",
+        seasonCs: "Celoročně",
+        seasonPt: "Todo o ano"
       },
       {
         id: "pomelo",
         name: "Pomelo",
         nameEn: "Grapefruit",
+        nameCs: "Grapefruit",
+        namePt: "Toranja",
         description: "Pomelos rojos y amarillos, refrescantes y ligeramente amargos. Excelente fuente de antioxidantes.",
         descriptionEn: "Red and yellow grapefruits, refreshing and slightly bitter. Excellent source of antioxidants.",
+        descriptionCs: "Červené a žluté grapefruitů, osvěžující a lehce hořké. Vynikající zdroj antioxidantů.",
+        descriptionPt: "Toranjas vermelhas e amarelas, refrescantes e ligeiramente amargas. Excelente fonte de antioxidantes.",
         season: "Diciembre - Abril",
-        seasonEn: "December - April"
+        seasonEn: "December - April",
+        seasonCs: "Prosinec - Duben",
+        seasonPt: "Dezembro - Abril"
       }
     ]
   },
@@ -69,54 +107,88 @@ export const fruitsData: FruitCategory[] = [
     id: "otras-frutas",
     name: "Otras Frutas",
     nameEn: "Other Fruits",
+    nameCs: "Ostatní ovoce",
+    namePt: "Outras frutas",
     description: "Variedad de frutas de temporada de máxima calidad",
     descriptionEn: "Variety of seasonal fruits of maximum quality",
+    descriptionCs: "Rozmanitost sezónního ovoce nejvyšší kvality",
+    descriptionPt: "Variedade de frutas da época de máxima qualidade",
     icon: "",
     fruits: [
       {
         id: "sandia",
         name: "Sandía",
         nameEn: "Watermelon",
+        nameCs: "Meloun vodní",
+        namePt: "Melancia",
         description: "Sandías dulces y refrescantes, con pulpa crujiente y jugosa. Perfectas para el verano, con alto contenido en agua.",
         descriptionEn: "Sweet and refreshing watermelons with crispy, juicy flesh. Perfect for summer, high water content.",
+        descriptionCs: "Sladké a osvěžující vodní melouny s křupavou a šťavnatou dužinou. Perfektní pro léto, s vysokým obsahem vody.",
+        descriptionPt: "Melancias doces e refrescantes, com polpa estaladiça e suculenta. Perfeitas para o verão, com alto teor de água.",
         season: "Junio - Septiembre",
-        seasonEn: "June - September"
+        seasonEn: "June - September",
+        seasonCs: "Červen - Září",
+        seasonPt: "Junho - Setembro"
       },
       {
         id: "melon",
         name: "Melón",
         nameEn: "Melon",
+        nameCs: "Meloun cukrový",
+        namePt: "Melão",
         description: "Melones tipo piel de sapo y amarillo, aromáticos y dulces. Textura suave y sabor característico.",
         descriptionEn: "Piel de sapo and yellow melons, aromatic and sweet. Smooth texture and distinctive flavor.",
+        descriptionCs: "Melouny typu piel de sapo a žluté, aromatické a sladké. Jemná textura a charakteristická chuť.",
+        descriptionPt: "Melões tipo pele de sapo e amarelos, aromáticos e doces. Textura suave e sabor característico.",
         season: "Mayo - Septiembre",
-        seasonEn: "May - September"
+        seasonEn: "May - September",
+        seasonCs: "Květen - Září",
+        seasonPt: "Maio - Setembro"
       },
       {
         id: "pera",
         name: "Pera",
         nameEn: "Pear",
+        nameCs: "Hruška",
+        namePt: "Pera",
         description: "Peras conferencia y blanquilla, jugosas y aromáticas. Textura mantecosa y sabor dulce delicado.",
         descriptionEn: "Conference and blanquilla pears, juicy and aromatic. Buttery texture and delicate sweet flavor.",
+        descriptionCs: "Hrušky conference a blanquilla, šťavnaté a aromatické. Krémová textura a jemná sladká chuť.",
+        descriptionPt: "Peras conference e blanquilla, suculentas e aromáticas. Textura amanteigada e sabor doce delicado.",
         season: "Agosto - Marzo",
-        seasonEn: "August - March"
+        seasonEn: "August - March",
+        seasonCs: "Srpen - Březen",
+        seasonPt: "Agosto - Março"
       },
       {
         id: "manzana",
         name: "Manzana",
         nameEn: "Apple",
+        nameCs: "Jablko",
+        namePt: "Maçã",
         description: "Manzanas golden, fuji y granny smith. Crujientes y versátiles, perfectas para consumo directo o cocinar.",
         descriptionEn: "Golden, fuji and granny smith apples. Crispy and versatile, perfect for fresh eating or cooking.",
+        descriptionCs: "Jablka golden, fuji a granny smith. Křupavá a všestranná, perfektní pro přímou konzumaci nebo vaření.",
+        descriptionPt: "Maçãs golden, fuji e granny smith. Estaladiças e versáteis, perfeitas para consumo direto ou cozinhar.",
         season: "Agosto - Abril",
-        seasonEn: "August - April"
+        seasonEn: "August - April",
+        seasonCs: "Srpen - Duben",
+        seasonPt: "Agosto - Abril"
       },
       {
         id: "kaki",
         name: "Caqui",
         nameEn: "Persimmon",
+        nameCs: "Kaki",
+        namePt: "Dióspiro",
         description: "Caquis persimon de la Ribera del Xúquer, dulces y sin semillas. Textura firme y sabor único.",
         descriptionEn: "Ribera del Xúquer persimon, sweet and seedless. Firm texture and unique flavor.",
+        descriptionCs: "Kaki persimon z Ribera del Xúquer, sladké a bez semen. Pevná textura a jedinečná chuť.",
+        descriptionPt: "Dióspiros persimon da Ribera del Xúquer, doces e sem sementes. Textura firme e sabor único.",
         season: "Octubre - Enero",
-        seasonEn: "October - January"
+        seasonEn: "October - January",
+        seasonCs: "Říjen - Leden",
+        seasonPt: "Outubro - Janeiro"
       }
     ]
   },
@@ -124,54 +196,88 @@ export const fruitsData: FruitCategory[] = [
     id: "fruta-hueso",
     name: "Fruta de Hueso",
     nameEn: "Stone Fruits",
+    nameCs: "Peckoviny",
+    namePt: "Fruta de caroço",
     description: "Frutas de hueso jugosas y aromáticas de temporada",
     descriptionEn: "Juicy and aromatic seasonal stone fruits",
+    descriptionCs: "Šťavnaté a aromatické sezónní peckoviny",
+    descriptionPt: "Frutas de caroço suculentas e aromáticas da época",
     icon: "",
     fruits: [
       {
         id: "melocoton",
         name: "Melocotón",
         nameEn: "Peach",
+        nameCs: "Broskev",
+        namePt: "Pêssego",
         description: "Melocotones de pulpa amarilla y roja, aromáticos y jugosos. Sabor dulce y textura aterciopelada.",
         descriptionEn: "Yellow and red flesh peaches, aromatic and juicy. Sweet flavor and velvety texture.",
+        descriptionCs: "Broskve se žlutou a červenou dužinou, aromatické a šťavnaté. Sladká chuť a sametová textura.",
+        descriptionPt: "Pêssegos de polpa amarela e vermelha, aromáticos e suculentos. Sabor doce e textura aveludada.",
         season: "Mayo - Septiembre",
-        seasonEn: "May - September"
+        seasonEn: "May - September",
+        seasonCs: "Květen - Září",
+        seasonPt: "Maio - Setembro"
       },
       {
         id: "nectarina",
         name: "Nectarina",
         nameEn: "Nectarine",
+        nameCs: "Nektarinka",
+        namePt: "Nectarina",
         description: "Nectarinas de piel lisa y brillante, muy aromáticas. Sabor intenso y refrescante.",
         descriptionEn: "Smooth and shiny-skinned nectarines, very aromatic. Intense and refreshing flavor.",
+        descriptionCs: "Nektarinky s hladkou a lesklou kůží, velmi aromatické. Intenzivní a osvěžující chuť.",
+        descriptionPt: "Nectarinas de pele lisa e brilhante, muito aromáticas. Sabor intenso e refrescante.",
         season: "Mayo - Septiembre",
-        seasonEn: "May - September"
+        seasonEn: "May - September",
+        seasonCs: "Květen - Září",
+        seasonPt: "Maio - Setembro"
       },
       {
         id: "ciruela",
         name: "Ciruela",
         nameEn: "Plum",
+        nameCs: "Švestka",
+        namePt: "Ameixa",
         description: "Ciruelas rojas y amarillas, dulces y jugosas. Perfectas para consumo fresco o conservas.",
         descriptionEn: "Red and yellow plums, sweet and juicy. Perfect for fresh consumption or preserves.",
+        descriptionCs: "Červené a žluté švestky, sladké a šťavnaté. Perfektní pro čerstvou konzumaci nebo zavařování.",
+        descriptionPt: "Ameixas vermelhas e amarelas, doces e suculentas. Perfeitas para consumo fresco ou conservas.",
         season: "Junio - Septiembre",
-        seasonEn: "June - September"
+        seasonEn: "June - September",
+        seasonCs: "Červen - Září",
+        seasonPt: "Junho - Setembro"
       },
       {
         id: "paraguayo",
         name: "Paraguayo",
         nameEn: "Flat Peach",
+        nameCs: "Plochá broskev",
+        namePt: "Pêssego achatado",
         description: "Paraguayos de forma achatada, muy dulces y aromáticos. Textura crujiente y jugosa.",
         descriptionEn: "Flat-shaped peaches, very sweet and aromatic. Crispy and juicy texture.",
+        descriptionCs: "Ploché broskve, velmi sladké a aromatické. Křupavá a šťavnatá textura.",
+        descriptionPt: "Pêssegos achatados, muito doces e aromáticos. Textura estaladiça e suculenta.",
         season: "Junio - Agosto",
-        seasonEn: "June - August"
+        seasonEn: "June - August",
+        seasonCs: "Červen - Srpen",
+        seasonPt: "Junho - Agosto"
       },
       {
         id: "albaricoque",
         name: "Albaricoque",
         nameEn: "Apricot",
+        nameCs: "Meruňka",
+        namePt: "Alperce",
         description: "Albaricoques aromáticos de color naranja intenso. Dulces y ricos en betacarotenos.",
         descriptionEn: "Aromatic apricots with intense orange color. Sweet and rich in beta-carotene.",
+        descriptionCs: "Aromatické meruňky s intenzivní oranžovou barvou. Sladké a bohaté na betakaroten.",
+        descriptionPt: "Alperces aromáticos de cor laranja intensa. Doces e ricos em betacaroteno.",
         season: "Mayo - Julio",
-        seasonEn: "May - July"
+        seasonEn: "May - July",
+        seasonCs: "Květen - Červenec",
+        seasonPt: "Maio - Julho"
       }
     ]
   },
@@ -179,54 +285,88 @@ export const fruitsData: FruitCategory[] = [
     id: "fruta-tropical",
     name: "Fruta Tropical",
     nameEn: "Tropical Fruits",
+    nameCs: "Tropické ovoce",
+    namePt: "Frutas tropicais",
     description: "Frutas tropicales exóticas cultivadas en España",
     descriptionEn: "Exotic tropical fruits grown in Spain",
+    descriptionCs: "Exotické tropické ovoce pěstované ve Španělsku",
+    descriptionPt: "Frutas tropicais exóticas cultivadas em Espanha",
     icon: "",
     fruits: [
       {
         id: "granada",
         name: "Granada",
         nameEn: "Pomegranate",
+        nameCs: "Granátové jablko",
+        namePt: "Romã",
         description: "Granadas mollar de Elche, dulces y sin pepitas duras. Ricas en antioxidantes y de sabor intenso.",
         descriptionEn: "Elche mollar pomegranates, sweet without hard seeds. Rich in antioxidants and intense flavor.",
+        descriptionCs: "Granátová jablka mollar z Elche, sladká a bez tvrdých semínek. Bohatá na antioxidanty a s intenzivní chutí.",
+        descriptionPt: "Romãs mollar de Elche, doces e sem sementes duras. Ricas em antioxidantes e de sabor intenso.",
         season: "Septiembre - Enero",
-        seasonEn: "September - January"
+        seasonEn: "September - January",
+        seasonCs: "Září - Leden",
+        seasonPt: "Setembro - Janeiro"
       },
       {
         id: "aguacate",
         name: "Aguacate",
         nameEn: "Avocado",
+        nameCs: "Avokádo",
+        namePt: "Abacate",
         description: "Aguacates hass cremosos y nutritivos. Textura mantecosa, perfectos para consumo fresco.",
         descriptionEn: "Creamy and nutritious hass avocados. Buttery texture, perfect for fresh consumption.",
+        descriptionCs: "Krémová a výživná avokáda hass. Máslová textura, perfektní pro čerstvou konzumaci.",
+        descriptionPt: "Abacates hass cremosos e nutritivos. Textura amanteigada, perfeitos para consumo fresco.",
         season: "Octubre - Mayo",
-        seasonEn: "October - May"
+        seasonEn: "October - May",
+        seasonCs: "Říjen - Květen",
+        seasonPt: "Outubro - Maio"
       },
       {
         id: "mango",
         name: "Mango",
         nameEn: "Mango",
+        nameCs: "Mango",
+        namePt: "Manga",
         description: "Mangos osteen de cultivo español, dulces y aromáticos. Pulpa jugosa de color naranja intenso.",
         descriptionEn: "Spanish-grown osteen mangoes, sweet and aromatic. Juicy flesh with intense orange color.",
+        descriptionCs: "Mango osteen ze španělského pěstování, sladké a aromatické. Šťavnatá dužina intenzivní oranžové barvy.",
+        descriptionPt: "Mangas osteen de cultivo espanhol, doces e aromáticas. Polpa suculenta de cor laranja intensa.",
         season: "Agosto - Octubre",
-        seasonEn: "August - October"
+        seasonEn: "August - October",
+        seasonCs: "Srpen - Říjen",
+        seasonPt: "Agosto - Outubro"
       },
       {
         id: "pina",
         name: "Piña",
         nameEn: "Pineapple",
+        nameCs: "Ananas",
+        namePt: "Ananás",
         description: "Piñas tropicales dulces y jugosas. Sabor refrescante y alto contenido en vitaminas.",
         descriptionEn: "Sweet and juicy tropical pineapples. Refreshing flavor and high vitamin content.",
+        descriptionCs: "Sladké a šťavnaté tropické ananasy. Osvěžující chuť a vysoký obsah vitamínů.",
+        descriptionPt: "Ananases tropicais doces e suculentos. Sabor refrescante e alto teor de vitaminas.",
         season: "Todo el año",
-        seasonEn: "Year-round"
+        seasonEn: "Year-round",
+        seasonCs: "Celoročně",
+        seasonPt: "Todo o ano"
       },
       {
         id: "nispero",
         name: "Níspero",
         nameEn: "Loquat",
+        nameCs: "Mišpule japonská",
+        namePt: "Nêspera",
         description: "Nísperos de Callosa d'En Sarrià, dulces y aromáticos. Textura delicada y sabor único.",
         descriptionEn: "Callosa d'En Sarrià loquats, sweet and aromatic. Delicate texture and unique flavor.",
+        descriptionCs: "Mišpule japonské z Callosa d'En Sarrià, sladké a aromatické. Jemná textura a jedinečná chuť.",
+        descriptionPt: "Nêsperas de Callosa d'En Sarrià, doces e aromáticas. Textura delicada e sabor único.",
         season: "Marzo - Mayo",
-        seasonEn: "March - May"
+        seasonEn: "March - May",
+        seasonCs: "Březen - Květen",
+        seasonPt: "Março - Maio"
       }
     ]
   },
@@ -234,126 +374,208 @@ export const fruitsData: FruitCategory[] = [
     id: "verduras",
     name: "Verduras",
     nameEn: "Vegetables",
+    nameCs: "Zelenina",
+    namePt: "Legumes",
     description: "Verduras frescas de huerta, cultivadas con esmero",
     descriptionEn: "Fresh garden vegetables, carefully cultivated",
+    descriptionCs: "Čerstvá zahradní zelenina, pěstovaná s péčí",
+    descriptionPt: "Legumes frescos da horta, cultivados com esmero",
     icon: "",
     fruits: [
       {
         id: "pimientos",
         name: "Pimientos",
         nameEn: "Peppers",
+        nameCs: "Papriky",
+        namePt: "Pimentos",
         description: "Pimientos rojos, verdes y amarillos. Crujientes, dulces y versátiles para cocinar.",
         descriptionEn: "Red, green and yellow peppers. Crispy, sweet and versatile for cooking.",
+        descriptionCs: "Červené, zelené a žluté papriky. Křupavé, sladké a všestranné pro vaření.",
+        descriptionPt: "Pimentos vermelhos, verdes e amarelos. Estaladiços, doces e versáteis para cozinhar.",
         season: "Mayo - Noviembre",
-        seasonEn: "May - November"
+        seasonEn: "May - November",
+        seasonCs: "Květen - Listopad",
+        seasonPt: "Maio - Novembro"
       },
       {
         id: "berenjena",
         name: "Berenjena",
         nameEn: "Eggplant",
+        nameCs: "Lilek",
+        namePt: "Beringela",
         description: "Berenjenas de piel brillante y pulpa blanca. Textura suave, ideales para asar o freír.",
         descriptionEn: "Shiny-skinned eggplants with white flesh. Smooth texture, ideal for roasting or frying.",
+        descriptionCs: "Lilky s lesklou slupkou a bílou dužinou. Jemná textura, ideální na pečení nebo smažení.",
+        descriptionPt: "Beringelas de pele brilhante e polpa branca. Textura suave, ideais para assar ou fritar.",
         season: "Junio - Octubre",
-        seasonEn: "June - October"
+        seasonEn: "June - October",
+        seasonCs: "Červen - Říjen",
+        seasonPt: "Junho - Outubro"
       },
       {
         id: "pepino",
         name: "Pepino",
         nameEn: "Cucumber",
+        nameCs: "Okurka",
+        namePt: "Pepino",
         description: "Pepinos crujientes y refrescantes. Perfectos para ensaladas, con alto contenido en agua.",
         descriptionEn: "Crispy and refreshing cucumbers. Perfect for salads, high water content.",
+        descriptionCs: "Křupavé a osvěžující okurky. Perfektní do salátů, s vysokým obsahem vody.",
+        descriptionPt: "Pepinos estaladiços e refrescantes. Perfeitos para saladas, com alto teor de água.",
         season: "Abril - Octubre",
-        seasonEn: "April - October"
+        seasonEn: "April - October",
+        seasonCs: "Duben - Říjen",
+        seasonPt: "Abril - Outubro"
       },
       {
         id: "calabacin",
         name: "Calabacín",
         nameEn: "Zucchini",
+        nameCs: "Cuketa",
+        namePt: "Courgette",
         description: "Calabacines tiernos de piel fina. Versátiles y delicados, ideales para múltiples preparaciones.",
         descriptionEn: "Tender thin-skinned zucchini. Versatile and delicate, ideal for multiple preparations.",
+        descriptionCs: "Jemné cukety s tenkou slupkou. Všestranné a jemné, ideální pro různé způsoby přípravy.",
+        descriptionPt: "Courgettes tenras de pele fina. Versáteis e delicadas, ideais para múltiplas preparações.",
         season: "Abril - Octubre",
-        seasonEn: "April - October"
+        seasonEn: "April - October",
+        seasonCs: "Duben - Říjen",
+        seasonPt: "Abril - Outubro"
       },
       {
         id: "apio",
         name: "Apio",
         nameEn: "Celery",
+        nameCs: "Celer",
+        namePt: "Aipo",
         description: "Apio fresco y crujiente, aromático. Rico en fibra, perfecto para caldos y ensaladas.",
         descriptionEn: "Fresh and crispy celery, aromatic. High in fiber, perfect for broths and salads.",
+        descriptionCs: "Čerstvý a křupavý celer, aromatický. Bohatý na vlákninu, perfektní do vývarů a salátů.",
+        descriptionPt: "Aipo fresco e estaladiço, aromático. Rico em fibra, perfeito para caldos e saladas.",
         season: "Todo el año",
-        seasonEn: "Year-round"
+        seasonEn: "Year-round",
+        seasonCs: "Celoročně",
+        seasonPt: "Todo o ano"
       },
       {
         id: "iceberg",
         name: "Lechuga Iceberg",
         nameEn: "Iceberg Lettuce",
+        nameCs: "Ledový salát",
+        namePt: "Alface iceberg",
         description: "Lechuga iceberg crujiente y refrescante. Hojas compactas, perfecta para ensaladas.",
         descriptionEn: "Crispy and refreshing iceberg lettuce. Compact leaves, perfect for salads.",
+        descriptionCs: "Křupavý a osvěžující ledový salát. Kompaktní listy, perfektní do salátů.",
+        descriptionPt: "Alface iceberg estaladiça e refrescante. Folhas compactas, perfeita para saladas.",
         season: "Todo el año",
-        seasonEn: "Year-round"
+        seasonEn: "Year-round",
+        seasonCs: "Celoročně",
+        seasonPt: "Todo o ano"
       },
       {
         id: "romana",
         name: "Lechuga Romana",
         nameEn: "Romaine Lettuce",
+        nameCs: "Římský salát",
+        namePt: "Alface romana",
         description: "Lechuga romana de hojas alargadas y crujientes. Sabor suave y textura firme.",
         descriptionEn: "Romaine lettuce with elongated crispy leaves. Mild flavor and firm texture.",
+        descriptionCs: "Římský salát s prodlouženými křupavými listy. Jemná chuť a pevná textura.",
+        descriptionPt: "Alface romana de folhas alongadas e estaladiças. Sabor suave e textura firme.",
         season: "Todo el año",
-        seasonEn: "Year-round"
+        seasonEn: "Year-round",
+        seasonCs: "Celoročně",
+        seasonPt: "Todo o ano"
       },
       {
         id: "little-gem",
         name: "Little Gem",
         nameEn: "Little Gem",
+        nameCs: "Malý salát Little Gem",
+        namePt: "Alface little gem",
         description: "Lechuga little gem pequeña y compacta. Hojas tiernas con corazón dulce y crujiente.",
         descriptionEn: "Small and compact little gem lettuce. Tender leaves with sweet, crispy heart.",
+        descriptionCs: "Malý a kompaktní salát little gem. Jemné listy se sladkým a křupavým středem.",
+        descriptionPt: "Alface little gem pequena e compacta. Folhas tenras com coração doce e estaladiço.",
         season: "Todo el año",
-        seasonEn: "Year-round"
+        seasonEn: "Year-round",
+        seasonCs: "Celoročně",
+        seasonPt: "Todo o ano"
       },
       {
         id: "brocoli",
         name: "Brócoli",
         nameEn: "Broccoli",
+        nameCs: "Brokolice",
+        namePt: "Brócolos",
         description: "Brócoli fresco de floretes compactos. Rico en nutrientes y sabor suave.",
         descriptionEn: "Fresh broccoli with compact florets. Nutrient-rich with mild flavor.",
+        descriptionCs: "Čerstvá brokolice s kompaktními růžičkami. Bohatá na živiny a s jemnou chutí.",
+        descriptionPt: "Brócolos frescos de floretes compactos. Ricos em nutrientes e sabor suave.",
         season: "Octubre - Abril",
-        seasonEn: "October - April"
+        seasonEn: "October - April",
+        seasonCs: "Říjen - Duben",
+        seasonPt: "Outubro - Abril"
       },
       {
         id: "coliflor",
         name: "Coliflor",
         nameEn: "Cauliflower",
+        nameCs: "Květák",
+        namePt: "Couve-flor",
         description: "Coliflor blanca de cabezas firmes. Versátil y nutritiva, sabor delicado.",
         descriptionEn: "White cauliflower with firm heads. Versatile and nutritious, delicate flavor.",
+        descriptionCs: "Bílý květák s pevnými hlavičkami. Všestranný a výživný, jemná chuť.",
+        descriptionPt: "Couve-flor branca de cabeças firmes. Versátil e nutritiva, sabor delicado.",
         season: "Octubre - Abril",
-        seasonEn: "October - April"
+        seasonEn: "October - April",
+        seasonCs: "Říjen - Duben",
+        seasonPt: "Outubro - Abril"
       },
       {
         id: "cebolla",
         name: "Cebolla",
         nameEn: "Onion",
+        nameCs: "Cibule",
+        namePt: "Cebola",
         description: "Cebollas dulces y de guarda. Base fundamental de la cocina mediterránea.",
         descriptionEn: "Sweet and storage onions. Fundamental base of Mediterranean cuisine.",
+        descriptionCs: "Sladké a skladovací cibule. Základní ingredience středomořské kuchyně.",
+        descriptionPt: "Cebolas doces e de armazenamento. Base fundamental da cozinha mediterrânica.",
         season: "Todo el año",
-        seasonEn: "Year-round"
+        seasonEn: "Year-round",
+        seasonCs: "Celoročně",
+        seasonPt: "Todo o ano"
       },
       {
         id: "zanahoria",
         name: "Zanahoria",
         nameEn: "Carrot",
+        nameCs: "Mrkev",
+        namePt: "Cenoura",
         description: "Zanahorias crujientes y dulces. Ricas en betacarotenos, versátiles en cocina.",
         descriptionEn: "Crispy and sweet carrots. Rich in beta-carotene, versatile in cooking.",
+        descriptionCs: "Křupavé a sladké mrkve. Bohaté na betakaroten, všestranné ve vaření.",
+        descriptionPt: "Cenouras estaladiças e doces. Ricas em betacaroteno, versáteis na cozinha.",
         season: "Todo el año",
-        seasonEn: "Year-round"
+        seasonEn: "Year-round",
+        seasonCs: "Celoročně",
+        seasonPt: "Todo o ano"
       },
       {
         id: "ajo",
         name: "Ajo",
         nameEn: "Garlic",
+        nameCs: "Česnek",
+        namePt: "Alho",
         description: "Ajos morados y blancos de gran calidad. Aromáticos e imprescindibles en la cocina.",
         descriptionEn: "High-quality purple and white garlic. Aromatic and essential in cooking.",
+        descriptionCs: "Vysoce kvalitní fialový a bílý česnek. Aromatický a nezbytný ve vaření.",
+        descriptionPt: "Alhos roxos e brancos de alta qualidade. Aromáticos e essenciais na cozinha.",
         season: "Todo el año",
-        seasonEn: "Year-round"
+        seasonEn: "Year-round",
+        seasonCs: "Celoročně",
+        seasonPt: "Todo o ano"
       }
     ]
   },
@@ -361,45 +583,73 @@ export const fruitsData: FruitCategory[] = [
     id: "berries",
     name: "Berries",
     nameEn: "Berries",
+    nameCs: "Bobulovité ovoce",
+    namePt: "Frutos vermelhos",
     description: "Frutos rojos delicados de máxima frescura",
     descriptionEn: "Delicate red berries of maximum freshness",
+    descriptionCs: "Jemné červené bobule maximální čerstvosti",
+    descriptionPt: "Frutos vermelhos delicados de máxima frescura",
     icon: "",
     fruits: [
       {
         id: "fresa",
         name: "Fresa",
         nameEn: "Strawberry",
+        nameCs: "Jahoda",
+        namePt: "Morango",
         description: "Fresas de Huelva aromáticas y dulces. Color rojo brillante, sabor intenso y textura jugosa.",
         descriptionEn: "Aromatic and sweet Huelva strawberries. Bright red color, intense flavor and juicy texture.",
+        descriptionCs: "Aromatické a sladké jahody z Huelvy. Jasně červená barva, intenzivní chuť a šťavnatá textura.",
+        descriptionPt: "Morangos de Huelva aromáticos e doces. Cor vermelha brilhante, sabor intenso e textura suculenta.",
         season: "Enero - Junio",
-        seasonEn: "January - June"
+        seasonEn: "January - June",
+        seasonCs: "Leden - Červen",
+        seasonPt: "Janeiro - Junho"
       },
       {
         id: "arandano",
         name: "Arándano",
         nameEn: "Blueberry",
+        nameCs: "Borůvka",
+        namePt: "Mirtilo",
         description: "Arándanos azules ricos en antioxidantes. Sabor dulce-ácido equilibrado, perfectos para snacks.",
         descriptionEn: "Blue blueberries rich in antioxidants. Balanced sweet-tart flavor, perfect for snacks.",
+        descriptionCs: "Modré borůvky bohaté na antioxidanty. Vyvážená sladkokyselá chuť, perfektní pro svačiny.",
+        descriptionPt: "Mirtilos azuis ricos em antioxidantes. Sabor doce-ácido equilibrado, perfeitos para lanches.",
         season: "Mayo - Septiembre",
-        seasonEn: "May - September"
+        seasonEn: "May - September",
+        seasonCs: "Květen - Září",
+        seasonPt: "Maio - Setembro"
       },
       {
         id: "frambuesa",
         name: "Frambuesa",
         nameEn: "Raspberry",
+        nameCs: "Malina",
+        namePt: "Framboesa",
         description: "Frambuesas delicadas de sabor intenso. Aromáticas y ligeramente ácidas, muy valoradas en repostería.",
         descriptionEn: "Delicate raspberries with intense flavor. Aromatic and slightly tart, highly valued in pastry.",
+        descriptionCs: "Jemné maliny s intenzivní chutí. Aromatické a lehce kyselé, velmi ceněné v cukrářství.",
+        descriptionPt: "Framboesas delicadas de sabor intenso. Aromáticas e ligeiramente ácidas, muito valorizadas em pastelaria.",
         season: "Mayo - Octubre",
-        seasonEn: "May - October"
+        seasonEn: "May - October",
+        seasonCs: "Květen - Říjen",
+        seasonPt: "Maio - Outubro"
       },
       {
         id: "mora",
         name: "Mora",
         nameEn: "Blackberry",
+        nameCs: "Ostružina",
+        namePt: "Amora",
         description: "Moras jugosas de color negro brillante. Sabor dulce con toques ácidos, ricas en vitaminas.",
         descriptionEn: "Juicy blackberries with shiny black color. Sweet flavor with tart notes, rich in vitamins.",
+        descriptionCs: "Šťavnaté ostružiny s lesklou černou barvou. Sladká chuť s kyselými tóny, bohaté na vitamíny.",
+        descriptionPt: "Amoras suculentas de cor preta brilhante. Sabor doce com toques ácidos, ricas em vitaminas.",
         season: "Junio - Septiembre",
-        seasonEn: "June - September"
+        seasonEn: "June - September",
+        seasonCs: "Červen - Září",
+        seasonPt: "Junho - Setembro"
       }
     ]
   }
