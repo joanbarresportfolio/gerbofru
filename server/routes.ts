@@ -16,23 +16,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const validatedData = insertSupplierInquirySchema.parse(req.body);
       const inquiry = await storage.createSupplierInquiry(validatedData);
 
-      // ✅ Configurar transporte de correo
-      const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 465,
-        secure: true,
-        auth: {
-          user: process.env.SMTP_USER, // tu correo
-          pass: process.env.SMTP_PASS, // contraseña o App Password
-        },
-      });
-
-      // ✅ Enviar el correo
-      await transporter.sendMail({
-        from: `"Formulario Proveedor" <${process.env.SMTP_USER}>`,
-        to: "tucorreo@ejemplo.com", // <-- correo destinatario
-        subject: "Nueva solicitud de proveedor",
-        html: `
+      if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+        const transporter = nodemailer.createTransport({
+          service: "gmail",
+          auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
+          },
+        });
+        // ✅ Enviar el correo
+        await transporter.sendMail({
+          from: `"Formulario Proveedor" <${process.env.SMTP_USER}>`,
+          to: "tucorreo@ejemplo.com", // <-- correo destinatario
+          subject: "Nueva solicitud de proveedor",
+          html: `
           <h3>Nueva solicitud de proveedor</h3>
           <p><b>Nombre:</b> ${validatedData.name}</p>
           <p><b>Email:</b> ${validatedData.email}</p>
@@ -41,7 +38,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
           <p><b>Productos:</b> ${validatedData.products.join(", ")}</p>
           <p><b>Mensaje:</b> ${validatedData.message || "(sin mensaje)"}</p>
         `,
-      });
+        });
+      } else {
+        console.warn(
+          "⚠️  Variables de correo no configuradas. No se enviarán emails."
+        );
+      }
 
       res.json({ success: true, inquiry });
     } catch (error) {
@@ -70,17 +72,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const inquiry = await storage.createBuyerInquiry(validatedData);
 
       // Crear transporte SMTP (usa tu propio servidor o Gmail)
-      const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 465,
-        secure: true,
-        auth: {
-          user: process.env.SMTP_USER, // tu correo
-          pass: process.env.SMTP_PASS, // contraseña o App Password
-        },
-      });
-
-      // Enviar el correo
+      if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+        const transporter = nodemailer.createTransport({
+          service: "gmail",
+          auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
+          },
+        });
+              // Enviar el correo
       await transporter.sendMail({
         from: `"Formulario Comprador" <${process.env.SMTP_USER}>`,
         to: "tucorreo@ejemplo.com", // <-- dirección donde recibirás los mensajes
@@ -92,9 +92,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
           <p><b>Teléfono:</b> ${validatedData.phone}</p>
           <p><b>Empresa:</b> ${validatedData.company}</p>
           <p><b>Productos de interés:</b> ${validatedData.productsInterest.join(
-            ", ",
+            ", "
           )}</p>
-          <p><b>Destino:</b> ${validatedData.destination || "No especificado"}</p>
+          <p><b>Destino:</b> ${
+            validatedData.destination || "No especificado"
+          }</p>
           <p><b>Volumen necesario:</b> ${
             validatedData.volumeNeeded || "No especificado"
           }</p>
@@ -106,6 +108,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
           <p style="font-size: 12px; color: #888;">Enviado automáticamente desde el formulario web de contacto.</p>
         `,
       });
+      } else {
+        console.warn(
+          "⚠️  Variables de correo no configuradas. No se enviarán emails."
+        );
+      }
+
+
       res.json({ success: true, inquiry });
     } catch (error) {
       console.error("Error en /api/buyer-inquiry:", error);
