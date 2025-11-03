@@ -15,7 +15,7 @@ export default function Home() {
   const { t } = useLanguage();
 
   useEffect(() => {
-    document.title = "AgroConnect - " + t("nav.home");
+    document.title = "Gerbofru - " + t("nav.home");
   }, [t]);
 
   return (
