@@ -36,7 +36,8 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center space-x-3" data-testid="logo">
             <div className="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center">
-              <Leaf className="text-primary-foreground text-lg" />
+              <Leaf className="text-primary-foreground text-lg" />{" "}
+              {/* CAMBIAR LOGO AQUI */}
             </div>
             <div>
               <h1 className="text-xl font-display font-bold text-foreground">
